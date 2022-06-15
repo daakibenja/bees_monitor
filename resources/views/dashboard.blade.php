@@ -9,7 +9,7 @@
         
           <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
-            <img src="{{ url('storage/'.$item->image) }}" class="d-block w-100" />
+            <img src="{{asset('images/' . $item->image)}}" class="img-fluid" alt="">
           </div>
         </div>
         

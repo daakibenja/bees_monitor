@@ -15,12 +15,13 @@ class ImageController extends Controller
         ]);
         $filename = "";
         if($request->hasFile('image')){
-            $filename = $request->file('image')->store('posts','public');
+            $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
         } else {
             $filename = Null;
         }
         $images->title = $request->title;
-        $images->image = $filename;
+        $images->image = $newImageName;
         $result = $images->save();
 
         if ($result) {
