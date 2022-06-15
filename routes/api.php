@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 //imports
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('products', ProductController::class);
+Route::post('/create',[ImageController::class, 'create']);
