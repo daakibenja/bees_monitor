@@ -29,4 +29,8 @@ class ImageController extends Controller
             return response()->json(['success'=>false]);
         }
     }
+    public function get(){
+        $images = Image::orderBy('id', 'DESC')->get();
+        return response()->json($images);
+    }
 }
