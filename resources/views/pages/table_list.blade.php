@@ -5,10 +5,9 @@
   <div class="container-fluid">
   <div class="row">
       @foreach($videos as $item)
-        <div class="col-lg-3 col-md-6 col-sm-6">
-        
-          <div class="card card-stats">
-            <div class="card-header card-header-warning card-header-icon">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="">
+            <div class="">
             <video width="400" controls>
   <source src="{{asset('videos/' . $item->video)}}" type="video/mp4">
   Your browser does not support HTML video.
