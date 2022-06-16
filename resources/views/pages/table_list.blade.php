@@ -9,7 +9,7 @@
           <div class="">
             <div class="">
             <video width="400" controls>
-  <source src="{{asset('videos/' . $item->video)}}" type="video/mp4">
+  <source src="{{asset('videos/' . $item->video)}}">
   Your browser does not support HTML video.
 </video>
           </div>
