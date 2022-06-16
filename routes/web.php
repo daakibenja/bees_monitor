@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Image;
+use App\Models\Video;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +27,10 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+	
 	Route::get('table-list', function () {
-		return view('pages.table_list');
+		$videos = Video::orderBy('id', 'DESC')->get();
+		return view('pages.table_list', compact('videos'));
 	})->name('table');
 
 	Route::get('typography', function () {

@@ -23,4 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource('products', ProductController::class);
 Route::post('/create',[ImageController::class, 'create']);
+Route::post('/createvideo',[ImageController::class, 'createVideo']);
 Route::get('/get',[ImageController::class, 'get']);
