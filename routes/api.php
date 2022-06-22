@@ -21,7 +21,6 @@ use App\Http\Controllers\ImageController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('products', ProductController::class);
 Route::post('/create',[ImageController::class, 'create']);
 Route::post('/createvideo',[ImageController::class, 'createVideo']);
 Route::get('/get',[ImageController::class, 'get']);
