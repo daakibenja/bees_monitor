@@ -27,9 +27,9 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	
+	Route::resource('admin/station', 'App\Http\Controllers\StationController');
 	Route::get('table-list', function () {
-		$videos = Video::orderBy('id', 'DESC')->get();
+		$videos = Video::orderBy('id', 'DESC')->paginate(5);
 		return view('pages.table_list', compact('videos'));
 	})->name('table');
 
@@ -38,7 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('typography');
 
 	Route::get('icons', function () {
-		return view('pages.icons');
+		$images = Image::orderBy('id', 'DESC')->paginate(5);
+		return view('pages.icons', compact('images'));
 	})->name('icons');
 
 	Route::get('map', function () {

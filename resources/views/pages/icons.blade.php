@@ -1,29 +1,73 @@
-@extends('layouts.app', ['activePage' => 'icons', 'titlePage' => __('Icons')])
+@extends('layouts.app', ['activePage' => 'icons', 'titlePage' => __('Table List')])
 
 @section('content')
 <div class="content">
   <div class="container-fluid">
-    <div class="container-fluid">
-      <div class="card card-plain">
-        <div class="card-header card-header-primary">
-          <h4 class="card-title">Material Design Icons</h4>
-          <p class="card-category">Handcrafted by our friends from
-            <a target="_blank" href="https://design.google.com/icons/">Google</a>
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card-body">
-              <div class="iframe-container d-none d-lg-block">
-                <iframe src="https://design.google.com/icons/">
-                  <p>Your browser does not support iframes.</p>
-                </iframe>
-              </div>
-              <div class="col-md-12 d-none d-sm-block d-md-block d-lg-none d-block d-sm-none text-center ml-auto mr-auto">
-                <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
-                  <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
-                </h5>
-              </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title ">Images from the field</h4>
+            <p class="card-category">List of images captured from all the hives</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Upload Date
+                  </th>
+                  <th>
+                    Hive Name
+                  </th>
+                  <th>
+                    Image
+                  </th>
+                  <th>
+                    Size
+                  </th>
+                </thead>
+                <tbody>
+                @foreach ($images as $image)
+                  <tr>
+                    <td>
+                    {{$image->id}}
+                    </td>
+                    <td>
+                    {{$image->created_at}}
+                    </td>
+                    <td>
+                    {{$image->title}}
+                    </td>
+                    <td>
+                    <div class="modal fade" id="{{'image'.$image->id}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                      <div class="modal-dialog modal-dialog-centered modal-lg" style="width:90%;height:95%">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel">{{$image->image}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <img src="{{asset('images/' . $image->image)}}" class="w-100" alt=""> 
+                          </div>
+                          <!-- <div class="modal-footer">
+                            <button class="btn btn-success" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">next</button>
+                          </div> -->
+                        </div>
+                      </div></div>
+<a class="btn-link" data-bs-toggle="modal" href="#{{'image'.$image->id}}" role="button">{{$image->image}}</a>
+                    </td>
+                    <td>
+                      45MB
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+              {{ $images->links() }}              
             </div>
           </div>
         </div>
@@ -31,4 +75,5 @@
     </div>
   </div>
 </div>
+
 @endsection

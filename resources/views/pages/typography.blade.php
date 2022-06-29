@@ -3,99 +3,78 @@
 @section('content')
 <div class="content">
   <div class="container-fluid">
-    <div class="card">
-      <div class="card-header card-header-primary">
-        <h4 class="card-title">Material Dashboard Heading</h4>
-        <p class="card-category">Created using Roboto Font Family</p>
-      </div>
-      <div class="card-body">
-        <div id="typography">
-          <div class="card-title">
-            <h2>Typography</h2>
-          </div>
-          <div class="row">
-            <div class="tim-typo">
-              <h1>
-                <span class="tim-note">Header 1</span>The Life of Material Dashboard </h1>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-success">
+              <h4 class="card-title ">Stations</h4>
+              <p class="card-category"> Here you can manage stations</p>
             </div>
-            <div class="tim-typo">
-              <h2>
-                <span class="tim-note">Header 2</span>The Life of Material Dashboard</h2>
-            </div>
-            <div class="tim-typo">
-              <h3>
-                <span class="tim-note">Header 3</span>The Life of Material Dashboard</h3>
-            </div>
-            <div class="tim-typo">
-              <h4>
-                <span class="tim-note">Header 4</span>The Life of Material Dashboard</h4>
-            </div>
-            <div class="tim-typo">
-              <h5>
-                <span class="tim-note">Header 5</span>The Life of Material Dashboard</h5>
-            </div>
-            <div class="tim-typo">
-              <h6>
-                <span class="tim-note">Header 6</span>The Life of Material Dashboard</h6>
-            </div>
-            <div class="tim-typo">
-              <p>
-                <span class="tim-note">Paragraph</span>
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Quote</span>
-              <blockquote class="blockquote">
-                <p>
-                  I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
-                </p>
-                <small>
-                  Kanye West, Musician
-                </small>
-              </blockquote>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Muted Text</span>
-              <p class="text-muted">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-              </p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Primary Text</span>
-              <p class="text-primary">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Info Text</span>
-              <p class="text-info">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Success Text</span>
-              <p class="text-success">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Warning Text</span>
-              <p class="text-warning">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-              </p>
-            </div>
-            <div class="tim-typo">
-              <span class="tim-note">Danger Text</span>
-              <p class="text-danger">
-                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-            </div>
-            <div class="tim-typo">
-              <h2>
-                <span class="tim-note">Small Tag</span>
-                Header with small subtitle
-                <br>
-                <small>Use "small" tag for the headers</small>
-              </h2>
+            <div class="card-body">
+                              <div class="row">
+                <div class="col-12 text-right">
+                  <a href="{{ url('/admin/station/create') }}" class="btn btn-sm btn-success">Add Station</a>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th>
+                        ID
+                    </th>
+                    <th>
+                      NAME
+                    </th>
+                    <th>
+                      VILLAGE
+                    </th>
+                    <th>
+                      DISTRICT
+                    </th>
+                    <th>
+                      NUMBER OF HIVES
+                    </th>
+                    <th class="text-right">
+                      Actions
+                    </th>
+                  </tr></thead>
+                  <tbody>
+                  @foreach($stations as $item)
+                                            <tr>
+                                            <td>
+                          {{$item->id}}
+                        </td>
+                        <td>
+                          {{$item->name}}
+                        </td>
+                        <td>
+                        {{$item->village}}
+                        </td>
+                        <td>
+                        {{$item->district}}
+                        </td>
+                        <td>
+                        {{$item->number_of_hives}}
+                        </td>
+                        <td class="td-actions text-right">
+                                                        <a rel="tooltip" class="btn btn-success btn-link" href="{{ url('/admin/station/' . $item->id . '/edit') }}" data-original-title="" title="">
+                              <i class="material-icons">edit</i>
+                              <div class="ripple-container"></div>
+                            </a>
+                            <form method="POST" action="{{ url('/admin/station' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="button3" title="Delete Station" onclick="return confirm(&quot;Confirm delete?&quot;)" style="border:0px;color:red"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>
+                                            </form>
+                                                    </td>
+                      </tr>
+                      @endforeach
+                                        </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

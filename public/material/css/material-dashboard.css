@@ -14651,11 +14651,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .sidebar .nav li .dropdown-menu a {
   margin: 10px 15px 0;
   border-radius: 3px;
-  color: #3C4858;
+  color: #008000;
   padding-left: 10px;
   padding-right: 10px;
   text-transform: capitalize;
-  font-size: 13px;
+  font-size: 25px;
   padding: 10px 15px;
 }
 
@@ -14858,6 +14858,59 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .sidebar[data-background-color="red"] .nav li.active>[data-toggle="collapse"] {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+
+
+
+.sidebar[data-background-color="green"] .nav .nav-item .nav-link {
+  color: #fff;
+}
+
+.sidebar[data-background-color="green"] .nav .nav-item i {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar[data-background-color="green"] .nav .nav-item.active [data-toggle="collapse"],
+.sidebar[data-background-color="green"] .nav .nav-item:hover [data-toggle="collapse"] {
+  color: #fff;
+}
+
+.sidebar[data-background-color="green"] .nav .nav-item.active [data-toggle="collapse"] i,
+.sidebar[data-background-color="green"] .nav .nav-item:hover [data-toggle="collapse"] i {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar[data-background-color="green"] .user a {
+  color: #fff;
+}
+
+.sidebar[data-background-color="green"] .simple-text {
+  color: #fff;
+}
+
+.sidebar[data-background-color="green"] .sidebar-background:after {
+  background: #00FF00;
+  opacity: .5;
+}
+
+.sidebar[data-background-color="green"] .user:after,
+.sidebar[data-background-color="green"] .logo:after,
+.sidebar[data-background-color="green"] .nav li.separator:after {
+  background-color: green;
+}
+
+.sidebar[data-background-color="green"] .nav li:hover:not(.active)>a,
+.sidebar[data-background-color="green"] .nav li.active>[data-toggle="collapse"] {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+
+
+
 
 .sidebar[data-image]:after,
 .sidebar.has-image:after {
