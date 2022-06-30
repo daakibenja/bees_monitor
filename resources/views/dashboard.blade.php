@@ -12,7 +12,7 @@
                 <i class="material-icons">content_copy</i>
               </div>
               <p class="card-category">Number Stations</p>
-              <h3 class="card-title">50
+              <h3 class="card-title">{{$stations}}
                 <small>stations</small>
               </h3>
             </div>
@@ -92,7 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="card">
             <div class="card-header card-header-tabs card-header-success">
@@ -138,6 +138,7 @@
                             </label>
                           </div>
                         </td>
+                        <td>{{$stationlate}}</td>
                         <td>Sign contract for "What are conference organizers afraid of?"</td>
                         <td class="td-actions text-right">
                           <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
@@ -382,16 +383,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 @endsection
-
-@push('js')
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
-    });
-  </script>
-@endpush

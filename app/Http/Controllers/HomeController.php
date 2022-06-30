@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Image;
+use App\Models\Station;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $images = Image::orderBy('id', 'DESC')->get();
-        return view('dashboard', compact('images'));
+        $stations = Station::get()->count();
+        $stationlate = Station::latest()->get();
+        return view('dashboard', compact('images','stations','stationlate'));
     }
 }

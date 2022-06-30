@@ -4,134 +4,78 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 ml-auto mr-auto">
+      <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Material Dashboard PRO</h4>
-            <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard.</p>
+          <div class="card-header card-header-success">
+            <h4 class="card-title ">Audios from the field</h4>
+            <p class="card-category"> List of audios captured from all the hives</p>
           </div>
           <div class="card-body">
-            <div class="table-responsive table-upgrade">
+            <div class="table-responsive">
               <table class="table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th class="text-center">Free</th>
-                    <th class="text-center">PRO</th>
-                  </tr>
+                <thead class=" text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Upload Date
+                  </th>
+                  <th>
+                    Hive Name
+                  </th>
+                  <th>
+                    Audio
+                  </th>
+                  <th>
+                    Size
+                  </th>
+                  <th>
+                    Length
+                  </th>
                 </thead>
                 <tbody>
+                @foreach ($audios as $audio)
                   <tr>
-                    <td><h3 class="text-primary">Laravel</h3></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>Login, Register, Forgot password pages</td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>User profile</td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Users management</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>User roles management </td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Items management </td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Categories management, Tags management </td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Wysiwyg, image upload, date picker inputs</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Radio button, checkbox, toggle inputs</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Notifications with Bootstrap Notify</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>DataTables.net</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td><h3 class="text-primary">Frontend</h3></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>Components</td>
-                    <td class="text-center">60</td>
-                    <td class="text-center">200</td>
-                  </tr>
-                  <tr>
-                    <td>Plugins</td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">15</td>
-                  </tr>
-                  <tr>
-                    <td>Example Pages</td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">27</td>
-                  </tr>
-                  <tr>
-                    <td>Login, Register, Pricing, Lock Pages</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>DataTables, VectorMap, SweetAlert, Wizard, jQueryValidation, FullCalendar etc...</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td>Mini Sidebar</td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td><h3 class="text-primary">Premium Support</h3></td>
-                    <td class="text-center"><i class="fa fa-times text-danger"></i></td>
-                    <td class="text-center"><i class="fa fa-check text-success"></i></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-center">Free</td>
-                    <td class="text-center">Just $149</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center">
-                      <a href="#" class="btn btn-round btn-fill btn-default disabled">Current Version</a>
+                    <td>
+                    {{$audio->id}}
                     </td>
-                    <td class="text-center">
-                      <a target="_blank" href="https://www.creative-tim.com/product/material-dashboard-pro-laravel" aria-disabled="true" class="btn btn-round btn-fill btn-info">Upgrade to PRO</a>
+                    <td>
+                    {{$audio->created_at}}
+                    </td>
+                    <td>
+                    {{$audio->title}}
+                    </td>
+                    <td>
+                    <div class="modal fade modal-fullscreen-xxl-down" id="{{'audio'.$audio->id}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                      <div class="modal-dialog modal-dialog-centered modal-lg" style="width:90%;height:85%">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel">{{$audio->audio}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                          <audio controls>
+  <source src="{{asset('audios/' . $audio->audio)}}">
+Your browser does not support the audio element.
+</audio>
+                          </div>
+                        </div>
+                      </div></div>
+<a class="btn-link" data-bs-toggle="modal" href="#{{'audio'.$audio->id}}" role="button">{{$audio->audio}}</a>
+                    </td>
+                    <td>
+                      30MB
+                    </td>
+                    <td>
+                      30s
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
-              </table>
+              </table>  
+              {{ $audios->links() }}                      
+              <div>
+              </div>   
             </div>
           </div>
         </div>

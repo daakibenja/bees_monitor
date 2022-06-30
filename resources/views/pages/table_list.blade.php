@@ -64,10 +64,10 @@
 <a class="btn-link" data-bs-toggle="modal" href="#{{'video'.$video->id}}" role="button">{{$video->video}}</a>
                     </td>
                     <td>
-                      30MB
+                    {{$video->size}}
                     </td>
                     <td>
-                      30s
+                    {{$video->length}}
                     </td>
                   </tr>
                   @endforeach

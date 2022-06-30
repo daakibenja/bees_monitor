@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Image;
 use App\Models\Video;
+use App\Models\Audio;
+use App\Models\Parameter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,39 +30,32 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('admin/station', 'App\Http\Controllers\StationController');
-	Route::get('table-list', function () {
+	Route::get('admin/videos', function () {
 		$videos = Video::orderBy('id', 'DESC')->paginate(5);
 		return view('pages.table_list', compact('videos'));
-	})->name('table');
-
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
+	})->name('admin.videos');
+	Route::get('admin/images', function () {
 		$images = Image::orderBy('id', 'DESC')->paginate(5);
 		return view('pages.icons', compact('images'));
-	})->name('icons');
+	})->name('admin.images');
+	Route::get('admin/audio', function () {
+		$audios = Audio::orderBy('id', 'DESC')->paginate(5);
+		return view('pages.upgrade',compact('audios'));
+	})->name('admin.audio');
 
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
+	Route::get('admin/parameters', function () {
+		$parameters = Parameter::orderBy('id', 'DESC')->paginate(5);
+		return view('pages.map',compact('parameters'));
+	})->name('admin.parameters');
 
-	Route::get('notifications', function () {
+	Route::get('admin/notifications', function () {
 		return view('pages.notifications');
-	})->name('notifications');
+	})->name('admin.notifications');
 
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::resource('admin/user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

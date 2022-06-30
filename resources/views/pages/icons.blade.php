@@ -26,9 +26,6 @@
                   <th>
                     Image
                   </th>
-                  <th>
-                    Size
-                  </th>
                 </thead>
                 <tbody>
                 @foreach ($images as $image)
@@ -59,9 +56,6 @@
                         </div>
                       </div></div>
 <a class="btn-link" data-bs-toggle="modal" href="#{{'image'.$image->id}}" role="button">{{$image->image}}</a>
-                    </td>
-                    <td>
-                      45MB
                     </td>
                   </tr>
                   @endforeach
