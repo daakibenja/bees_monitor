@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use App\Models\Audio;
 use App\Models\Video;
 
 class ImageController extends Controller
@@ -56,4 +57,26 @@ class ImageController extends Controller
         $images = Image::orderBy('id', 'DESC')->get();
         return response()->json($images);
     }
+    public function audio(Request $request){
+        $audios = new Audio();
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'audio' => 'required',
+      ]);
+      $audios->title = $request->title;
+      if ($request->hasFile('audio'))
+      {
+        $newaudioName = time() . '-' . $request->name . '.' . $request->audio->extension();
+        $request->audio->move(public_path('audios'), $newaudioName);
+       $audios->audio = $newaudioName;
+      }
+      $result = $audios->save();
+
+        if ($result) {
+            return response()->json(['success'=>true]);
+        } else {
+            return response()->json(['success'=>false]);
+        }
+    }
+    
 }
