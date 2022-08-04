@@ -15,13 +15,10 @@ return new class extends Migration
     {
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
-            $table->string('station');
-            $table->string('hive_name');
-            $table->string('wind_speed');
-            $table->string('wind_direction');
-            $table->string('temperature');
-            $table->string('rain');
-            $table->string('carbondioxide');
+            $table->integer('weight');
+            $table->integer('temperature');
+            $table->integer('humidity');
+            $table->date('time');
             $table->timestamps();
         });
     }

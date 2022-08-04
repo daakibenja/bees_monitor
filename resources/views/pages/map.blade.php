@@ -7,8 +7,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-success">
-            <h4 class="card-title ">Images from the field</h4>
-            <p class="card-category">List of images captured from all the hives</p>
+            <h4 class="card-title ">Weight, Temperature, Humidity from the field</h4>
+            <p class="card-category">Data Parameters captured from all the hives</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -18,22 +18,16 @@
                     ID
                   </th>
                   <th>
-                    Station
-                  </th>
-                  <th>
-                    Hive Name
-                  </th>
-                  <th>
-                    Wind Speed
-                  </th>
-                  <th>
-                    Wind Direction
+                    Weight
                   </th>
                   <th>
                     Temperature
                   </th>
                   <th>
-                    Rain
+                    Humidity
+                  </th>
+                  <th>
+                    Time
                   </th>
                 </thead>
                 <tbody>
@@ -43,25 +37,16 @@
                     {{$parameter->id}}
                     </td>
                     <td>
-                    {{$parameter->station}}
-                    </td>
-                    <td>
-                    {{$parameter->hive_name}}
-                    </td>
-                    <td>
-                    {{$parameter->wind_speed}}
-                    </td>
-                    <td>
-                    {{$parameter->wind_direction}}
+                    {{$parameter->weight}}
                     </td>
                     <td>
                     {{$parameter->temperature}}
                     </td>
                     <td>
-                    {{$parameter->rain}}
+                    {{$parameter->humidity}}
                     </td>
                     <td>
-                    {{$parameter->carbondioxide}}
+                    {{$parameter->time}}
                     </td>
                   </tr>
                   @endforeach

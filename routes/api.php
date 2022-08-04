@@ -7,4 +7,5 @@ use App\Http\Controllers\ImageController;
 Route::post('/create',[ImageController::class, 'create']);
 Route::post('/createvideo',[ImageController::class, 'createVideo']);
 Route::post('/audio',[ImageController::class, 'audio']);
+Route::post('/parameters',[ImageController::class, 'params']);
 Route::get('/get',[ImageController::class, 'get']);

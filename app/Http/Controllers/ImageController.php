@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Audio;
 use App\Models\Video;
+use App\Models\Parameter;
 
 class ImageController extends Controller
 {
@@ -71,6 +72,25 @@ class ImageController extends Controller
        $audios->audio = $newaudioName;
       }
       $result = $audios->save();
+
+        if ($result) {
+            return response()->json(['success'=>true]);
+        } else {
+            return response()->json(['success'=>false]);
+        }
+    }
+    public function params(Request $request){
+        $parameters = new Parameter();
+        $this->validate($request, [
+            'weight' => 'required',
+            'temperature' => 'required',
+            'humidity' => 'required',
+      ]);
+      $parameters->weight = $request->weight;
+      $parameters->temperature = $request->temperature;
+      $parameters->humidity = $request->humidity;
+      $parameters->time = $request->time;
+      $result = $parameters->save();
 
         if ($result) {
             return response()->json(['success'=>true]);
